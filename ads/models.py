@@ -2,7 +2,6 @@ from django.db import models
 
 
 class Ad(models.Model):
-
     name = models.CharField(max_length=200)
     author = models.ForeignKey("users.User", on_delete=models.CASCADE)
     price = models.PositiveIntegerField()
@@ -19,14 +18,25 @@ class Ad(models.Model):
         return self.name
 
 
-
 class Category(models.Model):
     name = models.CharField(max_length=200, unique=True)
-
 
     class Meta:
         verbose_name = 'Категория'
         verbose_name_plural = 'Категории'
+
+    def __str__(self):
+        return self.name
+
+
+class Selection(models.Model):
+    name = models.CharField(max_length=200)
+    owner = models.ForeignKey("users.User", on_delete=models.CASCADE)
+    items = models.ManyToManyField(Ad)
+
+    class Meta:
+        verbose_name = 'Подборка'
+        verbose_name_plural = 'Подборки'
 
     def __str__(self):
         return self.name

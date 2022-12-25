@@ -1,13 +1,18 @@
 [tool.poetry]
-name = "djangoproject1"
+name = "homework-29"
 version = "0.1.0"
 description = ""
 authors = ["Nikalh <nikalhov@gmail.com>"]
 readme = "README.md"
+packages = [{include = "homework_29"}]
 
 [tool.poetry.dependencies]
 python = "^3.10"
 django = "^4.1.4"
+djangorestframework = "^3.14.0"
+psycopg2 = "^2.9.5"
+djangorestframework-simplejwt = "^5.2.2"
+pillow = "^9.3.0"
 
 
 [build-system]
